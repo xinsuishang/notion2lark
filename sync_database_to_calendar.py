@@ -82,7 +82,7 @@ def database_check(conf_key, next_cursor=None, all=False):
                 if last_edited_time:
                     cache[database_id][page_id]["last_edited_time"] = last_edited_time
         cur_end = time.time()
-        print(f"{conf_key} 第 {idx} 条处理完成，完成时间：{int(cur_end)}, 耗时： {cur_end - cur_start}s")
+        print(f"{conf_key} 第 {idx} 条处理完成，完成时间：{int(cur_end)}, 耗时： {int(cur_end * 1000 - cur_start * 1000) / 1000}s")
     if resp["has_more"]:
         database_check(conf_key, next_cursor=resp["next_cursor"], all=all)
 
